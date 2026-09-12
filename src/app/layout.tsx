@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Rajendra Chevuru — Senior Network & Infrastructure Engineer",
+  title: "Rajendra Chevuru — Senior Network & Infrastructure Specialist",
   description:
-    "Rajendra Chevuru — senior network, network security and infrastructure engineer with 17+ years across enterprise networks, Check Point and Palo Alto estates, data centre operations and 24×7 IT service delivery. Based in the Netherlands.",
+    "Rajendra Chevuru — senior network, network security and infrastructure specialist with hands-on ownership across enterprise networks, Check Point and Palo Alto estates, data centre operations and 24×7 IT service delivery. Based in the Netherlands.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
