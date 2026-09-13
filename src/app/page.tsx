@@ -256,23 +256,24 @@ export default function Home() {
                 sizes="340px"
                 style={{
                   objectFit: "cover",
-                  objectPosition: "50% 12%",
+                  objectPosition: "50% 10%",
                   filter: "saturate(.94) contrast(1.02)",
                 }}
               />
+            </div>
+            <div className="text-center" style={{ marginTop: "16px" }}>
               <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(to top, color-mix(in srgb, var(--color-bg) 72%, transparent) 0%, rgba(0,0,0,0) 48%)",
-                }}
-              />
-              <div
-                className="absolute left-[18px] right-[18px] bottom-4 text-[12.5px] tracking-wider uppercase"
-                style={{ color: "var(--color-neutral-300)" }}
+                className="text-[13px] font-medium tracking-wide uppercase"
+                style={{ color: "var(--color-accent-300)", lineHeight: 1.4 }}
               >
                 Network &amp; Network Security, Infrastructure &amp; Data
-                Center Specialist | Azure Cloud &amp; DevOps Engineer | FDE
+                Center Specialist
+              </div>
+              <div
+                className="text-[12px] tracking-wide uppercase mt-1.5"
+                style={{ color: "var(--color-neutral-500)" }}
+              >
+                Azure Cloud &amp; DevOps Engineer · FDE
               </div>
             </div>
           </div>
