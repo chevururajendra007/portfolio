@@ -201,9 +201,11 @@ export default function Home() {
               style={{ lineHeight: 1.62, color: "var(--color-neutral-300)", animationDelay: "160ms" }}
             >
               I&apos;m Rajendra — a senior network, network security and
-              infrastructure specialist with hands-on ownership across
-              enterprise networks, Check Point and Palo Alto estates, data
-              centre operations and 24×7 IT service delivery.
+              infrastructure specialist, Azure Cloud &amp; DevOps Engineer,
+              and FDE (Forward Deployed Engineer), with hands-on ownership
+              across enterprise networks, Check Point and Palo Alto estates,
+              data centre operations, cloud infrastructure and 24×7 IT
+              service delivery.
             </p>
             <p
               className="fade-in-up text-[17.5px] max-w-[56ch] mb-7"
@@ -269,7 +271,8 @@ export default function Home() {
                 className="absolute left-[18px] right-[18px] bottom-4 text-[12.5px] tracking-wider uppercase"
                 style={{ color: "var(--color-neutral-300)" }}
               >
-                Senior Network &amp; Infrastructure Specialist
+                Network &amp; Network Security, Infrastructure &amp; Data
+                Center Specialist | Azure Cloud &amp; DevOps Engineer | FDE
               </div>
             </div>
           </div>
@@ -359,9 +362,9 @@ export default function Home() {
                   <div className="card-kicker">Also working as</div>
                   <div className="card-title">Azure Cloud &amp; DevOps Engineer</div>
                   <div className="card-body">
-                    FDE (Forward Deployed Engineer) since 2024 — extending
-                    that same hands-on ownership into cloud infrastructure,
-                    automation and CI/CD delivery.
+                    FDE (Forward Deployed Engineer) — extending that same
+                    hands-on ownership into cloud infrastructure, automation
+                    and CI/CD delivery.
                   </div>
                 </div>
                 <div className="card">
