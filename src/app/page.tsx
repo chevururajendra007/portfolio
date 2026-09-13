@@ -42,7 +42,7 @@ const experience = [
       "Run data centre and server room infrastructure: racks, power, cooling, cabling, capacity planning and hardware lifecycle.",
       "Keep access, environmental and asset records audit-ready year round, so audits are a review rather than a scramble.",
       "Lead major incidents, vulnerability remediation, BCMS exercises and DR validation to closure.",
-      "Extend operations into Azure Cloud and DevOps as a Forward Deployed Engineer (FDE) — designing cloud network patterns, building CI/CD pipelines, and applying AI techniques in production environments.",
+      "Extend operations into Azure Cloud and DevOps — designing cloud network patterns, building CI/CD pipelines, and applying AI techniques.",
       "Use generative AI to turn technical detail into documentation and management reporting at speed.",
     ],
     tags: ["Data centre ops", "Azure Cloud & DevOps", "Major incident", "BCMS & DR", "ISO audits"],
