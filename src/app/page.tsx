@@ -24,7 +24,6 @@ const nav = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
   { href: "#skills", label: "Skills" },
-  { href: "#certifications", label: "Certifications" },
   { href: "#education", label: "Education" },
   { href: "#foundation", label: "Foundation" },
   { href: "#contact", label: "Contact" },
@@ -35,14 +34,15 @@ const experience = [
     period: "2024 — Present",
     org: "Infosys",
     place: "Netherlands / BENELUX",
-    title: "IT Service, Support & Operations Manager | Azure Cloud & DevOps Engineer (FDE)",
+    title:
+      "IT Service, Support & Operations Manager | Azure Cloud & DevOps Engineer | FDE (Forward Deployed Engineer)",
     subtitle: "Hands-on infrastructure, cloud & operations lead",
     points: [
       "Own network, security and digital workplace operations across BENELUX sites — and stay hands-on in all three.",
       "Run data centre and server room infrastructure: racks, power, cooling, cabling, capacity planning and hardware lifecycle.",
       "Keep access, environmental and asset records audit-ready year round, so audits are a review rather than a scramble.",
       "Lead major incidents, vulnerability remediation, BCMS exercises and DR validation to closure.",
-      "Extend operations into Azure as a Forward Deployed Engineer (FDE) — designing cloud network patterns and building CI/CD pipelines directly within client environments.",
+      "Extend operations into Azure Cloud and DevOps, applying AI techniques as a Forward Deployed Engineer (FDE) — designing cloud network patterns and building CI/CD pipelines directly within client environments.",
       "Use generative AI to turn technical detail into documentation and management reporting at speed.",
     ],
     tags: ["Data centre ops", "Azure Cloud & DevOps", "Major incident", "BCMS & DR", "ISO audits"],
@@ -90,30 +90,6 @@ const achievements = [
   "Supported full lifecycle delivery — from RFP through to production go-live.",
 ];
 
-const certified = [
-  { kicker: "Cisco", title: "Routing & Switching" },
-  { kicker: "Check Point", title: "Security Administrator" },
-  { kicker: "Microsoft · AZ-900", title: "Azure Fundamentals" },
-];
-
-const inProgress = [
-  {
-    kicker: "Microsoft · AZ-500",
-    title: "Azure Security Engineer Associate",
-    body: "Identity, platform protection, security operations and data security in Azure.",
-  },
-  {
-    kicker: "Microsoft · AZ-700",
-    title: "Azure Network Engineer Associate",
-    body: "Hybrid connectivity, routing, private access and network security design.",
-  },
-  {
-    kicker: "Microsoft · AZ-305",
-    title: "Azure Solutions Architect Expert",
-    body: "Designing infrastructure, governance and business-continuity solutions.",
-  },
-];
-
 const isoStandards = [
   { code: "27001", label: "Information security management" },
   { code: "27701", label: "Privacy information management" },
@@ -123,9 +99,9 @@ const isoStandards = [
 ];
 
 const metrics = [
+  { value: "17", suffix: "+", label: "Years in enterprise infrastructure" },
   { value: "99.9", suffix: "%", label: "Sustained availability, multi-location networks" },
   { value: "5", suffix: "", label: "ISO standards supported with minimal findings" },
-  { value: "3", suffix: "", label: "Azure certifications currently in progress" },
 ];
 
 export default function Home() {
@@ -549,77 +525,6 @@ export default function Home() {
           </Reveal>
         </section>
 
-        <section id="certifications" style={{ scrollMarginTop: "90px", marginBottom: "96px" }}>
-          <Reveal>
-            <div className="section-label">
-              <span>Certifications</span>
-              <span />
-            </div>
-            <div className="grid gap-10" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px,1fr))" }}>
-              <div>
-                <h3 className="font-medium m-0 mb-4" style={{ fontSize: "20px", letterSpacing: "-0.02em" }}>
-                  Certified
-                </h3>
-                <div className="grid gap-3">
-                  {certified.map((c) => (
-                    <div className="card flex justify-between items-center gap-4" key={c.title}>
-                      <div>
-                        <div className="card-kicker">{c.kicker}</div>
-                        <div className="card-title">{c.title}</div>
-                      </div>
-                      <span className="tag tag-accent">Certified</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h3 className="font-medium m-0 mb-4" style={{ fontSize: "20px", letterSpacing: "-0.02em" }}>
-                  Azure — in progress
-                </h3>
-                <div className="grid gap-3">
-                  {inProgress.map((c) => (
-                    <div className="card" key={c.title}>
-                      <div className="flex justify-between items-center gap-4">
-                        <div>
-                          <div className="card-kicker">{c.kicker}</div>
-                          <div className="card-title">{c.title}</div>
-                        </div>
-                        <span className="tag tag-outline">In progress</span>
-                      </div>
-                      <div className="card-body mt-2">{c.body}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h3 className="font-medium m-0 mb-4" style={{ fontSize: "20px", letterSpacing: "-0.02em" }}>
-                  Programmes
-                </h3>
-                <div className="card flex gap-4 items-start">
-                  <span className="badge-icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M12 2.5c2.9 2.4 4.5 5.6 4.5 9 0 2-.5 3.7-1.3 5.2l-1.7-1a6.8 6.8 0 0 0 1-3.7c-.9.6-1.9 1-3 1.2v4l-2 2.3-2-2.3v-4c-1.1-.2-2.1-.6-3-1.2 0 1.3.4 2.6 1 3.7l-1.7 1A9.9 9.9 0 0 1 2.5 11.5c0-3.4 1.6-6.6 4.5-9 .8 1 1.9 1.7 3 2.1a10 10 0 0 1 2-2.1 10 10 0 0 1 2 2.1c1.1-.4 2.2-1.1 3-2.1Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                  </span>
-                  <div>
-                    <div className="card-kicker">Programme</div>
-                    <div className="card-title">Forward Deployed Engineer (FDE)</div>
-                    <div className="card-body">
-                      Hands-on programme in deploying, configuring and
-                      supporting solutions directly within client
-                      environments — from technical scoping through to
-                      go-live.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </section>
-
         <section id="education" style={{ scrollMarginTop: "90px", marginBottom: "96px" }}>
           <Reveal>
             <div className="section-label">
@@ -854,7 +759,8 @@ export default function Home() {
         }}
       >
         Rajendra Chevuru · Senior Network, Network Security &amp; Infrastructure
-        Specialist · Netherlands
+        Specialist · Azure Cloud &amp; DevOps Engineer | FDE (Forward Deployed
+        Engineer) · Netherlands
       </footer>
     </div>
   );
