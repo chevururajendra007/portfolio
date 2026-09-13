@@ -15,7 +15,8 @@ const skillsInfra = [
   "BCMS, DR & ISO audits",
   "Windows",
   "Digital workplace",
-  "Azure DevOps",
+  "Azure Cloud & DevOps Engineering",
+  "Forward Deployed Engineering (FDE)",
   "AI-assisted reporting & documentation",
 ];
 
@@ -34,16 +35,17 @@ const experience = [
     period: "2024 — Present",
     org: "Infosys",
     place: "Netherlands / BENELUX",
-    title: "IT Service, Support & Operations Manager",
-    subtitle: "Hands-on infrastructure, data centre & operations lead",
+    title: "IT Service, Support & Operations Manager | Azure Cloud & DevOps Engineer (FDE)",
+    subtitle: "Hands-on infrastructure, cloud & operations lead",
     points: [
       "Own network, security and digital workplace operations across BENELUX sites — and stay hands-on in all three.",
       "Run data centre and server room infrastructure: racks, power, cooling, cabling, capacity planning and hardware lifecycle.",
       "Keep access, environmental and asset records audit-ready year round, so audits are a review rather than a scramble.",
       "Lead major incidents, vulnerability remediation, BCMS exercises and DR validation to closure.",
+      "Extend operations into Azure as a Forward Deployed Engineer (FDE) — designing cloud network patterns and building CI/CD pipelines directly within client environments.",
       "Use generative AI to turn technical detail into documentation and management reporting at speed.",
     ],
-    tags: ["Data centre ops", "Major incident", "BCMS & DR", "ISO audits"],
+    tags: ["Data centre ops", "Azure Cloud & DevOps", "Major incident", "BCMS & DR", "ISO audits"],
   },
   {
     period: "2021 — 2024",
@@ -375,6 +377,15 @@ export default function Home() {
                   <div className="card-title">Netherlands · BENELUX</div>
                   <div className="card-body">
                     Open to opportunities across Europe, on site or hybrid.
+                  </div>
+                </div>
+                <div className="card">
+                  <div className="card-kicker">Also working as</div>
+                  <div className="card-title">Azure Cloud &amp; DevOps Engineer</div>
+                  <div className="card-body">
+                    FDE (Forward Deployed Engineer) since 2024 — extending
+                    that same hands-on ownership into cloud infrastructure,
+                    automation and CI/CD delivery.
                   </div>
                 </div>
                 <div className="card">
