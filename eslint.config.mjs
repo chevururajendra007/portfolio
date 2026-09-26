@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Standalone Python/Vite project with its own tooling.
+    "network-troubleshooter-agent/**",
   ]),
 ]);
 

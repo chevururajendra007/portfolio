@@ -1,0 +1,8 @@
+# Secrets stay local. Only the template is committed.
+.env
+!.env.example
+__pycache__/
+.pytest_cache/
+.venv/
+frontend/node_modules/
+frontend/dist/
