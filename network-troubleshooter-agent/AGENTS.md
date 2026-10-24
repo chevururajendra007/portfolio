@@ -5,7 +5,8 @@ A network troubleshooting agent: Azure AI Foundry model + a harness of read-only
 network tools, a guarded agent loop, a FastAPI route and a React chat box.
 
 ## Map
-- `agent.py` — tools, model, `chat()` loop. System prompt lives here.
+- `agent.py` — tools, model, `chat()` loop. System prompt lives here. `get_model()` picks
+  the LLM from `LLM_PROVIDER` (`azure` or `local`, which is any OpenAI-compatible runtime).
 - `guardrails.py` — ALL validation/policy for tool arguments. Tools must call it.
 - `main.py` — `POST /api/chat`: API key, rate limit, schema limits.
 - `frontend/src/App.jsx` — chat UI. Render text only; never `dangerouslySetInnerHTML`.

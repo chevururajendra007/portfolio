@@ -149,14 +149,37 @@ TOOLS_BY_NAME = {t.name: t for t in TOOLS}
 
 @lru_cache(maxsize=1)
 def get_model():
-    from langchain_azure_ai.chat_models import AzureAIChatCompletionsModel
+    """Build the LLM chosen by LLM_PROVIDER in .env: 'azure' (cloud) or 'local'.
 
-    model = AzureAIChatCompletionsModel(
-        endpoint=os.environ["AZURE_AI_ENDPOINT"],
-        credential=os.environ["AZURE_AI_API_KEY"],
-        model=os.environ["AZURE_AI_MODEL"],
-        temperature=0,
-    )
+    'local' speaks the OpenAI-compatible API that Ollama, LM Studio, vLLM,
+    llama.cpp server and Foundry Local all expose, so one setting covers them all.
+    """
+    provider = os.getenv("LLM_PROVIDER", "azure").strip().lower()
+    if provider == "azure":
+        from langchain_azure_ai.chat_models import AzureAIChatCompletionsModel
+
+        model = AzureAIChatCompletionsModel(
+            endpoint=os.environ["AZURE_AI_ENDPOINT"],
+            credential=os.environ["AZURE_AI_API_KEY"],
+            model=os.environ["AZURE_AI_MODEL"],
+            temperature=0,
+        )
+    elif provider == "local":
+        from langchain_openai import ChatOpenAI
+
+        model = ChatOpenAI(
+            base_url=os.getenv("LOCAL_LLM_URL", "http://localhost:11434/v1"),
+            api_key=os.getenv("LOCAL_LLM_API_KEY") or "not-needed",  # most local runtimes ignore it
+            model=os.environ["LOCAL_LLM_MODEL"],
+            temperature=0,
+            timeout=180,  # local models on CPU can be slow
+            # Ignore proxy env vars: prompts go straight to the local runtime, never via a proxy.
+            http_client=httpx.Client(trust_env=False, timeout=180),
+            http_async_client=httpx.AsyncClient(trust_env=False, timeout=180),
+            http_socket_options=(),  # we supply our own clients; silences a misleading proxy warning
+        )
+    else:
+        raise ValueError(f"LLM_PROVIDER must be 'azure' or 'local', got '{provider}'")
     return model.bind_tools(TOOLS)
 
 

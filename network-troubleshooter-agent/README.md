@@ -1,18 +1,19 @@
 # Network Troubleshooter Agent
 
 An AI agent that diagnoses network problems layer by layer (DNS → ping → TCP → TLS → HTTP)
-using real, read-only network tools, with an Azure AI Foundry model as the brain.
+using real, read-only network tools. The brain is either a cloud model (Azure AI Foundry) or a
+local model on your own machine (Ollama, LM Studio, vLLM and others). You choose with one line in `.env`.
 
 **Model (LLM) + Harness (prompt, tools, guardrails, loop) = Agent**
 
 | File | What it is |
 |---|---|
-| `.env` | Azure AI Foundry endpoint, API key, model deployment name, security settings. Copy from `.env.example`. **Never commit it.** |
-| `agent.py` | The tools (`dns_lookup`, `ping_host`, `traceroute`, `check_tcp_port`, `tls_certificate`, `http_check`), the model, and the agent loop (`chat`). |
+| `.env` | Which LLM to use (`LLM_PROVIDER`), its URL, key and model name, and the security settings. Copy from `.env.example`. **Never commit it.** |
+| `agent.py` | The tools (`dns_lookup`, `ping_host`, `traceroute`, `check_tcp_port`, `tls_certificate`, `http_check`), the model (cloud or local), and the agent loop (`chat`). |
 | `guardrails.py` | Input validation and target policy (SSRF / injection protection) for every tool call. |
 | `main.py` | FastAPI server with one route, `POST /api/chat`, that calls `chat()`. API key, rate limit, schema limits. |
 | `frontend/src/App.jsx` | React chat box. Sends the message and history, shows the answer and tool steps. |
-| `requirements.txt` | langchain-azure-ai, fastapi, uvicorn, httpx, python-dotenv |
+| `requirements.txt` | langchain-azure-ai, langchain-openai, fastapi, uvicorn, httpx, python-dotenv |
 | `evals/` | Evaluation suite: guardrails, agent loop, API boundary, live golden cases. |
 | `AGENTS.md` | Standing context for coding agents working on this code. |
 | `Dockerfile` | Sandbox: non-root container with only the tools the agent needs. |
@@ -21,7 +22,7 @@ using real, read-only network tools, with an Azure AI Foundry model as the brain
 
 ```bash
 cd network-troubleshooter-agent
-cp .env.example .env            # fill in your Azure AI Foundry values + APP_API_KEY
+cp .env.example .env            # choose LLM_PROVIDER, fill in its values + APP_API_KEY
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 uvicorn main:app --port 8000
@@ -29,6 +30,49 @@ uvicorn main:app --port 8000
 # second terminal
 cd frontend && npm install && npm run dev   # http://localhost:5173
 ```
+
+## Choosing the LLM: cloud or local
+
+Set `LLM_PROVIDER` in `.env`, then restart the server. No code changes are needed.
+
+| | `LLM_PROVIDER=azure` (default) | `LLM_PROVIDER=local` |
+|---|---|---|
+| Where the model runs | Microsoft's cloud | Your own machine or server |
+| Internet needed | Yes | No, after the one-time model download |
+| Cost | Billed per token | No token bill (you pay for the hardware and power) |
+| Settings used | `AZURE_AI_ENDPOINT`, `AZURE_AI_API_KEY`, `AZURE_AI_MODEL` | `LOCAL_LLM_URL`, `LOCAL_LLM_MODEL`, optional `LOCAL_LLM_API_KEY` |
+
+`local` works with any runtime that offers the OpenAI-compatible API:
+
+| Runtime | `LOCAL_LLM_URL` |
+|---|---|
+| Ollama | `http://localhost:11434/v1` |
+| LM Studio (start its local server) | `http://localhost:1234/v1` |
+| vLLM | `http://localhost:8000/v1` (run this app on another port, e.g. `--port 8001`) |
+| llama.cpp server, Foundry Local | the URL it prints at startup, ending in `/v1` |
+
+Example with Ollama:
+
+```bash
+# 1. Install Ollama from ollama.com, then download a model that supports tool calling
+ollama pull qwen2.5:7b
+# 2. In .env
+LLM_PROVIDER=local
+LOCAL_LLM_URL=http://localhost:11434/v1
+LOCAL_LLM_MODEL=qwen2.5:7b
+# 3. Restart the server
+uvicorn main:app --port 8000
+```
+
+Notes:
+- The model **must support tool calling**, or the agent cannot run checks. Good choices are
+  `qwen2.5` / `qwen3` (7B or larger), `llama3.1:8b` and `mistral-nemo`. Very small models (under 3B)
+  often pick the wrong tool.
+- A 7B model needs about 8 GB of RAM or GPU memory. It runs on CPU too, but slowly, so allow up to 3 minutes per answer.
+- For a fully offline server, download the runtime and the model on a machine with internet access, then copy them over.
+  With Ollama, the models are in `~/.ollama/models`.
+- Requests to the local runtime ignore proxy settings, so prompts never leave the machine through a proxy.
+- Run `python evals/run_live_evals.py` after switching models to check that the new model still picks the right tools.
 
 ## How the agent loop works
 
