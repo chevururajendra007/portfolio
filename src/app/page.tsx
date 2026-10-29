@@ -24,6 +24,7 @@ const nav = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
   { href: "#skills", label: "Skills" },
+  { href: "#projects", label: "Projects" },
   { href: "#education", label: "Education" },
   { href: "#foundation", label: "Foundation" },
   { href: "#contact", label: "Contact" },
@@ -524,6 +525,85 @@ export default function Home() {
               <div className="card">
                 <div className="card-kicker">Azure</div>
                 <div className="card-body">Azure Networks, Azure DevOps, Azure CI/CD Pipelines</div>
+              </div>
+            </div>
+          </Reveal>
+        </section>
+
+        <section id="projects" style={{ scrollMarginTop: "90px", marginBottom: "96px" }}>
+          <Reveal>
+            <div className="section-label">
+              <span>Projects</span>
+              <span />
+            </div>
+            <div
+              data-stack
+              className="grid gap-11 items-start"
+              style={{
+                borderRadius: "var(--radius-lg)",
+                background: "linear-gradient(150deg, var(--color-neutral-900) 0%, #1b1d2c 100%)",
+                boxShadow: "var(--shadow-sm)",
+                padding: "40px 36px",
+                gridTemplateColumns: "minmax(0,1.2fr) minmax(0,1fr)",
+              }}
+            >
+              <div>
+                <div
+                  className="text-[12.5px] tracking-wider uppercase mb-3"
+                  style={{ color: "var(--color-neutral-500)" }}
+                >
+                  AI platform · NSIP
+                </div>
+                <h2
+                  className="font-medium m-0 mb-4.5"
+                  style={{ fontSize: "clamp(26px,3vw,34px)", letterSpacing: "-0.025em", lineHeight: 1.14 }}
+                >
+                  Network Security Intelligence Platform
+                </h2>
+                <p
+                  className="text-base max-w-[54ch] mb-4"
+                  style={{ lineHeight: 1.68, color: "var(--color-neutral-300)" }}
+                >
+                  A portal with AI agents for the teams that run client
+                  connectivity: one view of VPN tunnels, MPLS circuits and
+                  SASE across Check Point, Palo Alto, Cisco DNAC and Zscaler,
+                  with agents that troubleshoot links, triage ServiceNow
+                  tickets and prepare firewall fixes and upgrades.
+                </p>
+                <p
+                  className="text-base max-w-[54ch] mb-6"
+                  style={{ lineHeight: 1.68, color: "var(--color-neutral-400)" }}
+                >
+                  Built to run fully on-prem with a local model, CyberArk for
+                  credentials, guardrails and approvals before any change, and
+                  an evaluation suite as the release gate.
+                </p>
+                <a
+                  className="btn btn-primary"
+                  href="https://nsip-ai.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open live demo
+                </a>
+              </div>
+              <div className="grid gap-3.5">
+                <div className="card">
+                  <div className="card-kicker">AI agents</div>
+                  <div className="card-title">Troubleshoot &amp; triage</div>
+                  <div className="card-body">
+                    Checks tunnels, devices and user connections, then posts
+                    suggested fixes on ServiceNow tickets for an engineer to confirm.
+                  </div>
+                </div>
+                <div className="card">
+                  <div className="card-kicker">Security</div>
+                  <div className="card-title">Guardrails by design</div>
+                  <div className="card-body">
+                    Role-based access, two-person approval for device changes,
+                    sandboxed agents and a full audit log.
+                  </div>
+                </div>
               </div>
             </div>
           </Reveal>
