@@ -807,9 +807,14 @@ export default function Home() {
                   >
                     Phone
                   </span>
-                  <a href="tel:+31625566020" className="text-[15.5px]">
-                    +31 6 2556 6020
-                  </a>
+                  <div className="flex flex-col items-end gap-1">
+                    <a href="tel:+31657515249" className="text-[15.5px]">
+                      +31 6 5751 5249
+                    </a>
+                    <a href="tel:+919791126145" className="text-[15.5px]">
+                      +91 97911 26145
+                    </a>
+                  </div>
                 </div>
                 <div
                   className="flex flex-wrap justify-between gap-x-4.5 gap-y-1"
