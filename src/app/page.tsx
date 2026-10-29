@@ -165,7 +165,7 @@ export default function Home() {
         >
           <div>
             <div
-              className="fade-in-up inline-flex items-center gap-2 rounded-full mb-6 text-[12.5px] tracking-wider uppercase whitespace-nowrap"
+              className="fade-in-up inline-flex items-center gap-2 rounded-full mb-6 max-w-full text-[11.5px] sm:text-[12.5px] tracking-wide sm:tracking-wider uppercase"
               style={{
                 padding: "6px 13px",
                 border: "1px solid var(--color-accent-700)",
@@ -174,7 +174,7 @@ export default function Home() {
               }}
             >
               <span
-                className="w-[7px] h-[7px] rounded-full"
+                className="w-[7px] h-[7px] rounded-full shrink-0"
                 style={{
                   background: "var(--color-accent-400)",
                   animation: "pulseDot 2.4s ease-in-out infinite",
@@ -401,7 +401,8 @@ export default function Home() {
             {experience.map((job, i) => (
               <Reveal key={job.title} delay={i * 80}>
                 <article
-                  className="grid gap-8"
+                  data-stack
+                  className="grid gap-8 exp-item"
                   style={{
                     gridTemplateColumns: "minmax(140px,190px) minmax(0,1fr)",
                     padding: "30px 0",

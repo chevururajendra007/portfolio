@@ -261,4 +261,8 @@ a:focus-visible {
   [data-stack] {
     grid-template-columns: minmax(0, 1fr) !important;
   }
+  /* Experience: dates sit just above the role once stacked */
+  .exp-item {
+    gap: 12px !important;
+  }
 }
