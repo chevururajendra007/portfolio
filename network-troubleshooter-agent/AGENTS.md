@@ -1,4 +1,4 @@
-# AGENTS.md — standing context for coding agents working on this folder
+# AGENTS.md — standing context for coding agents working on TunnelSight AI
 
 ## What this is
 A network troubleshooting agent: Azure AI Foundry model + a harness of read-only

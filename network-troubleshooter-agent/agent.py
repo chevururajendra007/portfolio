@@ -1,4 +1,4 @@
-"""Network troubleshooter agent: the tools, the model, and the agent loop (chat).
+"""TunnelSight AI, a network troubleshooter agent: the tools, the model, and the agent loop (chat).
 
 Model (LLM) + harness (prompt, tools, guardrails, loop) = agent.
 """
@@ -24,7 +24,7 @@ MAX_STEPS = 8  # model turns per request: stops runaway loops (and runaway token
 MAX_TOOL_CALLS = 12  # total tool executions per request
 MAX_HISTORY_TURNS = 20
 
-SYSTEM_PROMPT = """You are a network troubleshooting assistant for an operations team.
+SYSTEM_PROMPT = """You are TunnelSight AI, a network troubleshooting assistant for an operations team.
 
 Method: form a hypothesis, test it with the smallest tool call, then narrow down
 layer by layer - DNS -> reachability (ping) -> port (TCP) -> TLS -> HTTP.

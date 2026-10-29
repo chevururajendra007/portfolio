@@ -1,4 +1,4 @@
-# Network Troubleshooter Agent
+# TunnelSight AI — Network Troubleshooter Agent
 
 An AI agent that diagnoses network problems layer by layer (DNS → ping → TCP → TLS → HTTP)
 using real, read-only network tools. The brain is either a cloud model (Azure AI Foundry) or a

@@ -13,8 +13,8 @@ from pydantic import BaseModel, Field
 from agent import chat
 from guardrails import MAX_MESSAGE_CHARS
 
-log = logging.getLogger("netagent")
-app = FastAPI(title="Network Troubleshooter Agent", docs_url=None, redoc_url=None)
+log = logging.getLogger("tunnelsight")
+app = FastAPI(title="TunnelSight AI", docs_url=None, redoc_url=None)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[os.getenv("FRONTEND_ORIGIN", "http://localhost:5173")],

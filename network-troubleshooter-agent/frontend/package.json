@@ -1,5 +1,5 @@
 {
-  "name": "network-troubleshooter-frontend",
+  "name": "tunnelsight-ai-frontend",
   "private": true,
   "type": "module",
   "scripts": {
