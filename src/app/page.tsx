@@ -290,7 +290,7 @@ export default function Home() {
                 "linear-gradient(135deg, var(--color-section) 0%, #1d2049 62%, var(--color-section-glow) 130%)",
               boxShadow: "var(--shadow-md)",
               padding: "38px 34px",
-              gridTemplateColumns: "repeat(auto-fit, minmax(200px,1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(200px,100%),1fr))",
             }}
           >
             {metrics.map((m) => (
@@ -457,7 +457,7 @@ export default function Home() {
               <h3 className="font-medium m-0 mb-4.5" style={{ fontSize: "20px", letterSpacing: "-0.02em" }}>
                 Selected achievements
               </h3>
-              <div className="grid gap-3.5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(260px,1fr))" }}>
+              <div className="grid gap-3.5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(260px,100%),1fr))" }}>
                 {achievements.map((a) => (
                   <div className="card" key={a}>
                     <div className="card-body">{a}</div>
@@ -474,7 +474,7 @@ export default function Home() {
               <span>Skills</span>
               <span />
             </div>
-            <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px,1fr))", gap: "40px 56px" }}>
+            <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(300px,100%),1fr))", gap: "40px 56px" }}>
               <div className="grid gap-4">
                 <div className="text-[12.5px] tracking-wider uppercase" style={{ color: "var(--color-neutral-500)" }}>
                   Networking &amp; security
@@ -500,7 +500,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="mt-9 grid gap-3.5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(230px,1fr))" }}>
+            <div className="mt-9 grid gap-3.5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(230px,100%),1fr))" }}>
               <div className="card">
                 <div className="card-kicker">Networking</div>
                 <div className="card-body">
@@ -616,7 +616,7 @@ export default function Home() {
               <span>Education &amp; governance</span>
               <span />
             </div>
-            <div className="grid gap-10" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px,1fr))" }}>
+            <div className="grid gap-10" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(280px,100%),1fr))" }}>
               <div>
                 <h3
                   className="font-medium m-0 mb-2"
@@ -784,7 +784,7 @@ export default function Home() {
               </div>
               <div className="grid gap-0.5">
                 <div
-                  className="flex justify-between gap-4.5"
+                  className="flex flex-wrap justify-between gap-x-4.5 gap-y-1"
                   style={{ padding: "16px 0", borderTop: "1px solid var(--color-divider)" }}
                 >
                   <span
@@ -793,12 +793,12 @@ export default function Home() {
                   >
                     Email
                   </span>
-                  <a href="mailto:ChevuruRajendra007@gmail.com" className="text-[15.5px]">
+                  <a href="mailto:ChevuruRajendra007@gmail.com" className="text-[15.5px] [overflow-wrap:anywhere]">
                     ChevuruRajendra007@gmail.com
                   </a>
                 </div>
                 <div
-                  className="flex justify-between gap-4.5"
+                  className="flex flex-wrap justify-between gap-x-4.5 gap-y-1"
                   style={{ padding: "16px 0", borderTop: "1px solid var(--color-divider)" }}
                 >
                   <span
@@ -812,7 +812,7 @@ export default function Home() {
                   </a>
                 </div>
                 <div
-                  className="flex justify-between gap-4.5"
+                  className="flex flex-wrap justify-between gap-x-4.5 gap-y-1"
                   style={{
                     padding: "16px 0",
                     borderTop: "1px solid var(--color-divider)",
