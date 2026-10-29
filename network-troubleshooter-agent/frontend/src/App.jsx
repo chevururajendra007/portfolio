@@ -37,8 +37,8 @@ export default function App() {
 
   return (
     <main style={{ maxWidth: 760, margin: "2rem auto", padding: "0 16px", fontFamily: "system-ui, sans-serif" }}>
-      <h1>TunnelSight AI</h1>
-      <p style={{ marginTop: "-0.5rem" }}>AI network troubleshooter: DNS, reachability, ports, TLS and HTTP.</p>
+      <h1>Network Security Intelligence Platform</h1>
+      <p style={{ marginTop: "-0.5rem" }}>NSIP · AI network troubleshooter: DNS, reachability, ports, TLS and HTTP.</p>
       <p style={{ color: "#666" }}>Try: "Why can't I reach example.com over HTTPS?"</p>
       {history.map((t, i) => (
         <div key={i} style={{ whiteSpace: "pre-wrap", margin: "0.75rem 0", padding: "0.75rem", borderRadius: 8,

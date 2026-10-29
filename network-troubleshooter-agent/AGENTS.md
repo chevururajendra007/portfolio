@@ -1,4 +1,4 @@
-# AGENTS.md — standing context for coding agents working on TunnelSight AI
+# AGENTS.md — standing context for coding agents working on the Network Security Intelligence Platform (NSIP)
 
 ## What this is
 A network troubleshooting agent: Azure AI Foundry model + a harness of read-only
